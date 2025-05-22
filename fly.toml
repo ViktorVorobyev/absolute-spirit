@@ -1,0 +1,22 @@
+# fly.toml app configuration file generated for designeriat-nameless-fog-3369 on 2025-05-06T01:23:10+03:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "designeriat"
+primary_region = "fra"
+
+[[vm]]
+  memory = "1gb"
+  cpu_kind = "shared"
+  cpus = 1
+
+[deploy]
+  strategy = "immediate"
+
+[processes]
+  app = "python app.py"
+
+# 👇 это важно, чтобы бот не "усыплялся"
+[experimental]
+  auto_rollback = true
